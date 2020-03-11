@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhanghao.dao.EmployeeDao">
+    <resultMap id="EmployeeMap" type="com.zhanghao.pojo.Employee">
+        <id column="id" property="id"/>
+        <result property="realName" column="real_name"/>
+        <result property="birthday" column="birthday"/>
+        <result property="mobile" column="mobile"/>
+        <result property="email" column="email"/>
+        <result property="position" column="position"/>
+        <result property="note" column="note"/>
+        <result property="sex" column="sex" typeHandler="com.zhanghao.typeHandler.SexTypeHandler"/>
+<!--        1对1级联-->
+        <association property="workCard" column="id" select="com.zhanghao.dao.WorkCardDao.getWorkCardByEmpId"/>
+
+<!--        1对多级联-->
+        <collection property="employeeTasks" column="id" select="com.zhanghao.dao.EmployeeTaskDao.getEmployeeTaskByEmpId"/>
+
+        <discriminator javaType="long" column="sex">
+            <case value="1" resultMap="maleMap"/>
+            <case value="0" resultMap="femaleMap"/>
+        </discriminator>
+    </resultMap>
+
+
+    <resultMap id="femaleMap" type="com.zhanghao.pojo.FemaleEmployee" extends="EmployeeMap">
+        <association property="femaleHealthForm" column="id" select="com.zhanghao.dao.FemaleHealthFormDao.getFemaleHealthFormByEmpId"/>
+    </resultMap>
+
+    <resultMap id="maleMap" type="com.zhanghao.pojo.MaleEmployee" extends="EmployeeMap">
+        <association property="maleHealthForm" column="id" select="com.zhanghao.dao.MaleHealthFormDao.getMaleHealthFormByEmpId"/>
+    </resultMap>
+
+
+    <select id="getEmployee" parameterType="int" resultMap="EmployeeMap">
+        select * from t_employee where id=#{id}
+    </select>
+</mapper>

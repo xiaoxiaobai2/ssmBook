@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhanghao.dao.RoleDao">
+<!--    之前配置了别名，可以直接使用role-->
+    <select id="findAll" resultType="role">
+        select * from role
+    </select>
+
+<!--    测试concat-->
+    <select id="findByName" parameterType="string" resultType="role">
+        select * from role where role_name like
+            concat('%',#{name},'%')
+    </select>
+
+<!--    测试主键回填-->
+    <insert id="insert" parameterType="role" useGeneratedKeys="true" keyProperty="id">
+        insert into role(role_name,note) values(#{roleName},#{note})
+    </insert>
+</mapper>
