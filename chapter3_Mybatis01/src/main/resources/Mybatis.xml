@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+<!--    引入资源文件-->
+    <properties resource="jdbc.properties"/>
+
+<!--    使用驼峰映射-->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="true"/>
+    </settings>
+    <!-- 设置别名 -->
+    <typeAliases>
+        <typeAlias alias="role" type="com.zhanghao.pojo.Role"/>
+    </typeAliases>
+
+    <!-- 设置数据库 -->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="pooled">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+
+    <mappers>
+                <mapper resource="com/zhanghao/dao/RoleDao.xml"/>
+                <mapper resource="com/zhanghao/dao/TaskDao.xml"/>
+                <mapper resource="com/zhanghao/dao/WorkCardDao.xml"/>
+                <mapper resource="com/zhanghao/dao/EmployeeTaskDao.xml"/>
+                <mapper resource="com/zhanghao/dao/MaleHealthFormDao.xml"/>
+                <mapper resource="com/zhanghao/dao/FemaleHealthFormDao.xml"/>
+                <mapper resource="com/zhanghao/dao/EmployeeDao.xml"/>
+<!--        <mapper class="com.zhanghao.dao.RoleDao"/>-->
+    </mappers>
+</configuration>

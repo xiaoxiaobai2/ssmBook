@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhanghao.dao.MaleHealthFormDao">
+    <select id="getMaleHealthFormByEmpId" parameterType="int" resultType="com.zhanghao.pojo.MaleHealthForm">
+        select * from t_male_health_form where emp_id=#{empId};
+    </select>
+</mapper>

@@ -190,7 +190,7 @@
     <option name="jreName" value="11" />
     <option name="vmOptions" value="-DarchetypeCatalog=internal" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="676" />
     <option name="width" value="697" />
     <option name="height" value="735" />
@@ -493,15 +493,15 @@
       <workItem from="1583205724541" duration="316000" />
       <workItem from="1583206236092" duration="4100000" />
       <workItem from="1583389376524" duration="610000" />
-      <workItem from="1583935023218" duration="1002000" />
+      <workItem from="1583935023218" duration="1608000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15600000" />
+    <option name="totallyTimeSpent" value="16206000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24130106" />

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhanghao.dao.RedPacketDao">
+    <select id="getRedPacket" resultType="com.zhanghao.pojo.RedPacket">
+        select * from t_red_packet where id=#{id}
+    </select>
+
+    <!-- 用for update 进行行锁定 -->
+    <select id="getRedPacketForUpdate" resultType="com.zhanghao.pojo.RedPacket">
+        select * from t_red_packet where id=#{id} for update
+    </select>
+
+    <update id="decreaseRedPacket" >
+        update t_red_packet set stock = stock-1 where id=#{id}
+    </update>
+
+    <update id="decreaseRedPacketForVersion" >
+        update t_red_packet set stock = stock-1,version= version + 1 where id=#{arg0} and version=#{arg1}
+    </update>
+</mapper>
