@@ -49,6 +49,9 @@ public class RedisConfig {
 
     }
 
+    /*
+        redis缓存管理
+     */
     @Bean("redisCacheManager")
     public CacheManager initRedisCacheManager(){
         RedisCacheManager redisCacheManager = new RedisCacheManager(initRedisTemplate());

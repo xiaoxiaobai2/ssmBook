@@ -40,21 +40,12 @@ public class RootConfig implements TransactionManagementConfigurer {
             return dataSource;
         try {
 
-//            C3P0PooledDataSource c3P0PooledDataSource = new C3P0PooledDataSource();
-//            c3P0PooledDataSource.setDriverClass("com.mysql.jdbc.Driver");
-//            c3P0PooledDataSource.setPassword("123456");
-//            c3P0PooledDataSource.setUser("root");
-//            c3P0PooledDataSource.setJdbcUrl("jdbc:mysql:///ssm");
             Properties properties = new Properties();
             properties.setProperty("driverClassName","com.mysql.jdbc.Driver");
             properties.setProperty("url","jdbc:mysql:///ssmbook");
             properties.setProperty("username","root");
             properties.setProperty("password","123456");
             dataSource = BasicDataSourceFactory.createDataSource(properties);
-//            Class.forName("com.mysql.jdbc.Driver");
-//            Driver driver = DriverManager.getDriver("com.mysql.jdbc.Driver");
-//            dataSource =
-//                    new SimpleDriverDataSource(driver,"jdbc:mysql:///ssm","root","123456");
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
