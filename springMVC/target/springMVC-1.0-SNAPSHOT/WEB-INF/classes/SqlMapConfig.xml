@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+<!--    使用驼峰映射-->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="true"/>
+    </settings>
+    <!-- 设置别名 -->
+    <typeAliases>
+        <typeAlias alias="role" type="com.zhanghao.pojo.Role"/>
+    </typeAliases>
+
+
+    <mappers>
+<!--                <mapper resource="com/zhanghao/dao/RoleDao.xml"/>-->
+<!--                <mapper resource="com/zhanghao/dao/TaskDao.xml"/>-->
+<!--                <mapper resource="com/zhanghao/dao/WorkCardDao.xml"/>-->
+<!--                <mapper resource="com/zhanghao/dao/EmployeeTaskDao.xml"/>-->
+<!--                <mapper resource="com/zhanghao/dao/MaleHealthFormDao.xml"/>-->
+<!--                <mapper resource="com/zhanghao/dao/FemaleHealthFormDao.xml"/>-->
+<!--                <mapper resource="com/zhanghao/dao/EmployeeDao.xml"/>-->
+        <package name="com.zhanghao.dao"/>
+<!--        <mapper class="com.zhanghao.dao.RoleDao"/>-->
+    </mappers>
+</configuration>

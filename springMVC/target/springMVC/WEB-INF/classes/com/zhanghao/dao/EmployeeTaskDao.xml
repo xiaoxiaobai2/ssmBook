@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhanghao.dao.EmployeeTaskDao">
+    <resultMap id="EmployeeTaskMap" type="com.zhanghao.pojo.EmployeeTask">
+        <id property="id" column="id"/>
+        <result property="empId" column="emp_id"/>
+        <result property="taskName" column="task_name"/>
+        <result property="note" column="note"/>
+
+<!--        一对一级联-->
+        <association property="task" column="task_id" select="com.zhanghao.dao.TaskDao.getTask"/>
+
+    </resultMap>
+
+
+    <select id="getEmployeeTaskByEmpId" parameterType="int" resultMap="EmployeeTaskMap">
+        select * from t_employee_task where emp_id=#{empId}
+    </select>
+</mapper>
